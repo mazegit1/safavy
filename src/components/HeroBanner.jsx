@@ -11,11 +11,11 @@ const HeroBanner = () => {
 
   // Animation variants
   const variants = {
-    enterFromLeft: { x: "-100%", opacity: 0, scale: 0.9, rotate: -10 },
-    enterFromRight: { x: "100%", opacity: 0, scale: 0.9, rotate: 10 },
-    center: { x: 0, opacity: 1, scale: 1, rotate: 0 },
-    exitToLeft: { x: "-100%", opacity: 0, scale: 0.9, rotate: -10 },
-    exitToRight: { x: "100%", opacity: 0, scale: 0.9, rotate: 10 },
+    enterFromLeft: { x: "-100%", opacity: 0, scale: 0.9 },
+    enterFromRight: { x: "100%", opacity: 0, scale: 0.9 },
+    center: { x: 0, opacity: 1, scale: 1 },
+    exitToLeft: { x: "-100%", opacity: 0, scale: 0.9 },
+    exitToRight: { x: "100%", opacity: 0, scale: 0.9 },
   };
 
   const handleNext = () => {
@@ -29,11 +29,11 @@ const HeroBanner = () => {
   };
 
   return (
-    <div className="banner mt-20 relative overflow-hidden bg-gradient-to-r  bg-black p-2 rounded-lg shadow-2xl">
+    <div className="banner mt-20 relative overflow-hidden bg-gradient-to-r from-black to-gray-900 p-2 rounded-lg shadow-2xl">
       {/* Left Navigation Button */}
       <button
         onClick={handlePrev}
-        className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white bg-black p-3 rounded-full z-10 shadow-lg hover:scale-110 transition-transform"
+        className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white bg-black p-3 rounded-full z-10 shadow-lg hover:scale-110 transition-transform duration-300"
       >
         <FaChevronLeft size={24} />
       </button>
@@ -49,14 +49,14 @@ const HeroBanner = () => {
           animate="center"
           exit={isLeft ? "exitToLeft" : "exitToRight"}
           variants={variants}
-          transition={{ duration: 0.8, ease: [0.4, 0, 0.2, 1] }}
+          transition={{ duration: 0.5, ease: [0.42, 0, 0.58, 1] }}
         />
       </AnimatePresence>
 
       {/* Right Navigation Button */}
       <button
         onClick={handleNext}
-        className="absolute right-4 top-1/2 transform -translate-y-1/2 text-white bg-black p-3 rounded-full z-10 shadow-lg hover:scale-110 transition-transform"
+        className="absolute right-4 top-1/2 transform -translate-y-1/2 text-white bg-black p-3 rounded-full z-10 shadow-lg hover:scale-110 transition-transform duration-300"
       >
         <FaChevronRight size={24} />
       </button>
@@ -65,3 +65,4 @@ const HeroBanner = () => {
 };
 
 export default HeroBanner;
+  

@@ -9,13 +9,9 @@ import { GiHamburgerMenu } from "react-icons/gi";
 const Header = () => {
   const [isFocused, setIsFocused] = useState(false);
   const [inputValue, setInputValue] = useState("");
-  const [isThemeDark, setIsThemeDark] = useState(false);
   const [showProfilePopup, setShowProfilePopup] = useState(false);
   const [showCartPopup, setShowCartPopup] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  // Function to toggle theme
-  const toggleTheme = () => setIsThemeDark(!isThemeDark);
 
   // Function to toggle popups
   const toggleProfilePopup = () => {
@@ -33,11 +29,7 @@ const Header = () => {
   };
 
   return (
-    <div
-      className={`header fixed top-0 left-0 w-full z-50 shadow-lg transition-all duration-300 ${
-        isThemeDark ? "bg-black text-white" : "bg-white text-[#0E6097]"
-      }`}
-    >
+    <div className="header fixed top-0 left-0 w-full z-50 shadow-lg transition-all duration-300 bg-white text-[#0E6097]">
       <div className="flex items-center justify-between px-6 lg:px-16 py-4">
         {/* Logo */}
         <a href="/" className="header-part1 flex items-center">
@@ -50,7 +42,7 @@ const Header = () => {
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             onClick={toggleMenu}
-            className="cursor-pointer p-2 rounded-md bg-gray-200 hover:bg-gray-300 dark:bg-gray-200 dark:text-black dark:hover:bg-gray-600"
+            className="cursor-pointer p-2 rounded-md bg-gray-200 hover:bg-gray-300"
           >
             <GiHamburgerMenu size={24} />
           </motion.div>
@@ -131,26 +123,19 @@ const Header = () => {
 
         {/* Icons */}
         <div className="header-part4 flex gap-5 relative items-center">
-          <motion.div
-            onClick={toggleTheme}
-            className="text-center text-2xl pt-2 cursor-pointer"
-          >
-            Theme
-          </motion.div>
-
           <div className="relative">
             <motion.div
               onClick={toggleProfilePopup}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
-              className="cursor-pointer p-2 rounded-full bg-gray-200 hover:bg-gray-300 dark:text-black dark:bg-gray-200 dark:hover:bg-gray-300"
+              className="cursor-pointer p-2 rounded-full bg-gray-200 hover:bg-gray-300"
             >
               <AiOutlineUser size={24} />
             </motion.div>
 
             {showProfilePopup && (
               <div
-                className="absolute top-12 right-0 bg-white dark:bg-gray-800 text-black dark:text-white shadow-md border border-black rounded-md p-4 z-10"
+                className="absolute top-12 right-0 bg-white text-black shadow-md border border-black rounded-md p-4 z-10"
                 style={{ minWidth: "150px" }}
               >
                 <p className="text-md">Profile Settings</p>
@@ -164,7 +149,7 @@ const Header = () => {
               onClick={toggleCartPopup}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
-              className="cursor-pointer p-2 rounded-full bg-gray-200 hover:bg-gray-300 dark:text-black dark:bg-gray-200 dark:hover:bg-gray-300"
+              className="cursor-pointer p-2 rounded-full bg-gray-200 hover:bg-gray-300"
             >
               <a href="/shop" className="wrapper">
                 <BsCartFill size={24} />
